@@ -32,20 +32,33 @@ arrowLeft.addEventListener("click", () =>{
 	console.log("Gauche")
 });
 
-let dots = "";
+//let dots = "";
 
-for(let i = 0; i < slides.length; i++){
+//for(let i = 0; i < slides.length; i++){
 	//let dotSelect =""
-	//if(i = 0){
+	//if(i === 0){
 	//	dotSelect = "dot_selected"
 	//}else{
 	//	dotSelect =""
 	//};
 	//dots += `<i class="dot ${dotSelect}"></i>`
-	dots += `<i class="dot"></i>`
-};
+	//dots += `<i class="dot"></i>`
+//};
 
-console.log(dots)
+for (let slide of slides){
+	console.log(slide.image)
+}
 
-let dotsCont = document.querySelector(".dots")
-dotsCont.innerHTML = dots
+
+for (let index in slides){
+	let dot = document.createElement("i");
+	dot.classList.add("dot")
+	console.log(dot)
+
+	let dotsCont = document.querySelector(".dots");
+	dotsCont.appendChild(dot);
+
+	console.log(dotsCont)
+}
+
+
