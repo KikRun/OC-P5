@@ -17,33 +17,38 @@ const slides = [
 	}
 ]
 
+let globalIndex = 0;
+
+let baliseImage = document.querySelector(".banner-img");
+
+
 let arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener("click", () =>{
 	event.preventDefault();
+	globalIndex++
+	if(globalIndex > slides.length-1){
+		globalIndex =0
+	}
+	baliseImage.setAttribute("src", "./assets/images/slideshow/"+ slides[globalIndex].image);
 	console.log("Droite");
+	console.log(globalIndex)
 });
 
 
 let arrowLeft = document.querySelector(".arrow_left");
 
 arrowLeft.addEventListener("click", () =>{
+	globalIndex--
+	if(globalIndex < 0){
+		globalIndex = 3
+	}
 	event.preventDefault();
+	baliseImage.setAttribute("src", "./assets/images/slideshow/"+ slides[globalIndex].image);
 	console.log("Gauche")
+	console.log(globalIndex)
 });
 
-//let dots = "";
-
-//for(let i = 0; i < slides.length; i++){
-	//let dotSelect =""
-	//if(i === 0){
-	//	dotSelect = "dot_selected"
-	//}else{
-	//	dotSelect =""
-	//};
-	//dots += `<i class="dot ${dotSelect}"></i>`
-	//dots += `<i class="dot"></i>`
-//};
 
 for (let slide of slides){
 	console.log(slide.image)
@@ -61,4 +66,9 @@ for (let index in slides){
 	console.log(dotsCont)
 }
 
+
+
+console.log(baliseImage)
+console.log(globalIndex)
+console.log(slides[globalIndex].image)
 
